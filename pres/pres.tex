@@ -1,0 +1,84 @@
+\documentclass{beamer}
+
+\usepackage{default}
+\usepackage{tikz}
+\usepackage{helvet}
+
+\begin{document}
+\begin{frame}
+\title{Development of Machine-Readable Subsets of Natural Languages}
+\author{Anna Repina \and Dmitry Galanine \and \\[8mm]Advisor: Prof. Lilia R. Sakaeva }
+\institute{Institute of Computer Science, Kazan Federal University}
+\date{2018--11--15}
+\maketitle
+\end{frame}
+
+\begin{frame}{Goals}
+\begin{itemize}
+\item analysing the theory of controlled languages
+\item examining existing implementations
+\item implementing a custom language subset parser
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Basic definitions}
+\textit{Controlled natural languages (CNLs)} are subsets of natural languages that are obtained by restricting the grammar and
+vocabulary in order to reduce or eliminate ambiguity and complexity. 
+
+Their purpose is usually
+\begin{itemize}
+\item either to improve readability for non-native speakers
+\item or to enable automatic semantic analysis of the language.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+The automatically analysable language subsets usually have a formal logical basis, i.e. formally defined syntax and semantics.
+They are often mapped to an existing formal language.
+\end{frame}
+
+\begin{frame}{Existing implementations}
+An example of a controlled language subset is \textit{Attempto Controlled English (ACE)}, developed at the University of Zurich.
+ACE appears perfectly natural --- it can be read and understood by any speaker of English --- it is in fact a formal language
+mapped to the first-order logic.
+\end{frame}
+
+\begin{frame}
+Here are some simple ACE examples
+\begin{itemize}
+\item \textit{Every woman is a human.}
+\item \textit{A woman is a human.}
+\item \textit{A man tries-on a new tie. If the tie pleases his wife then the man buys it.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Custom implementation}
+\begin{tikzpicture}
+\node[draw, text width = 15mm] (IF) at (0, 0) { Input file \tiny Text };
+\node[draw, text width = 15mm] (P) at (4, 0) { Parser \tiny Scala };
+\node[draw, text width = 20mm] (OF) at (8, 0) { Output file \tiny JSON };
+\node[draw, text width = 20mm] (KB) at (4, 4) { Knowledge base \tiny SQLite };
+
+\path [->] (IF) edge node[left] {} (P); 
+\path [->] (P) edge node[left] {} (OF); 
+\path [<->] (P) edge node[left] {} (KB); 
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item An \textit{input file} contains some sentences in the controlled subset.
+\item An \textit{output file} would contain a formal representation of the given sentences in a specified format. 
+\item A \textit{parsing engine} translate sentences into syntactic constructs and prints them to an output file.
+\item A \textit{knowledge base} contains information about the lexicon of the language (e.g. parts of speech).
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+\huge Thank you for your attention!
+\end{center}
+
+\end{frame}
+
+\end{document}
