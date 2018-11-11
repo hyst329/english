@@ -1,0 +1,58 @@
+\documentclass{article}
+
+\usepackage{tempora}
+\usepackage[14pt]{extsizes}
+
+\begin{document}
+(Slide 1)\\
+
+The topic of our presentation is \textit{Development of Machine-Readable Subsets of Natural Languages}.\\
+
+(Slide 2)\\
+
+The main goals of our work on the subject are analysis of the theoretical part (for example, formal language theory),
+studying of the existing controlled languages structure and implementation, and writing an own controlled language in the
+form of both specification and implementation.\\
+
+(Slide 3)\\
+
+So, let's begin from what the controlled language is. A \textit{controlled language} is a subset of some natural language
+(for instance, English or Russian), which has formally defined grammar and syntax rules making the language unambiguously
+understood (not only by humans, of course).\\
+
+(Slide 4)\\
+
+These subsets have many purposes, but one of our interest is enabling of automatic semantic analysis, which let the language be
+machine-readable and (which is more important) machine-understandable. Such languages are usually mapped to some formal language
+--- for example, first-order logic or even some programming language, which in theory will enable the non-programmers to write
+instructions for the machine using natural language (or its subset at least).\\
+
+(Slide 5)\\
+
+An example of controlled language is the Attempto Controlled English, which is a subset of English language developed by Swiss
+computer scientists and linguists.\\
+
+(Slide 6)\\
+
+Here you can see example sentences written in Attempto Controlled English. As you may notice, they look very natural, not
+artificially constructed.\\
+
+(Slide 7)\\
+
+Now let's look at the architecture of a controlled language implementation.
+It accepts an input file containing a list of sentences in the our controlled language and sends it to the parsing engine,
+which parses the sentences, constructs the syntax trees from them and binds them contextually. The parsing engine
+also interacts with the knowledge base which is used to deduce the meanings and syntactic roles of the words (except basic
+auxiliary words such as \textit{if}, \textit{has}, \textit{be} etc.)\\
+
+(Slide 8)\\
+
+The parsing engine in written in Scala because it allows our to write very concise programming constructions which can be 
+easily understood.
+The parsing expression grammar 
+
+(Slide 9)\\
+
+Thank you for your attention. Now, any questions, please.
+
+\end{document}
